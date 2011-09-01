@@ -3,20 +3,20 @@
   <noinput> 
             I'm sorry. I didn't hear anything.
 		<reprompt/> 
-	</noinput> 
+  </noinput> 
     
-	<nomatch>
-        I didn't get that.Please us e the keypad .Sorry for the inconvenience
-   	 <reprompt/> 
-	</nomatch> 
+			<nomatch>
+		        	I didn't get that.Please us e the keypad .Sorry for the inconvenience
+		   	 <reprompt/> 
+			</nomatch> 
  
     <property name="universals" value="all" /> 
  
-	<help> 
-		I'm sorry. There's no help available here.
-	</help> 
+		<help> 
+			I'm sorry. There's no help available here.
+		</help> 
  
- 	<var name="sys" type="number" />
+    <var name="sys" type="number" />
  
  
 	<menu id="main" accept="exact" dtmf="true">
@@ -35,7 +35,7 @@
             </prompt> 
             
             <choice next="#test1">Checkin Account.</choice> 
-    </menu> 
+       </menu> 
  
  
 	<form id="test1"> 
