@@ -23,7 +23,7 @@
         <break size = "small" />
         <break size = "small" />
             <prompt>
-                Welcome to Bank of America .
+                Welcome to Bank of XXXX .
             <break size = "small" />
             </prompt> 
             <prompt>
@@ -92,7 +92,7 @@
 			  <break size = "small" />
 			  You Are Done.
 			  Your Data has been submitted.
-			  Thank You for using Bank of America . <break size = "small" /> We will contact you soon .
+			  Thank You for using Bank of XXXX . <break size = "small" /> We will contact you soon .
 			  Have a nice day.
 			</prompt>
 		</block>
