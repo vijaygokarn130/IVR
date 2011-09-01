@@ -1,0 +1,101 @@
+<vxml version="2.1">
+ 
+  <noinput> 
+            I'm sorry. I didn't hear anything.
+		<reprompt/> 
+	</noinput> 
+    
+	<nomatch>
+        I didn't get that.Please us e the keypad .Sorry for the inconvenience
+   	 <reprompt/> 
+	</nomatch> 
+ 
+    <property name="universals" value="all" /> 
+ 
+	<help> 
+		I'm sorry. There's no help available here.
+	</help> 
+ 
+ 	<var name="sys" type="number" />
+ 
+ 
+	<menu id="main" accept="exact" dtmf="true">
+        <break size = "small" />
+        <break size = "small" />
+            <prompt>
+                Welcome to Bank of America .
+            <break size = "small" />
+            </prompt> 
+            <prompt>
+                    You can say Help at any time to get help.
+                    <break size = "small" />
+                    How can we help you today your only choice is checkin account so say checkin account
+                    <break size = "small" /> 
+                    <enumerate/> 
+            </prompt> 
+            
+            <choice next="#test1">Checkin Account.</choice> 
+    </menu> 
+ 
+ 
+	<form id="test1"> 
+		<field name="a" type="number"> 
+                <prompt> 
+                    You said Checkin Account.Please tell me the balance in your credit card
+                </prompt> 
+                <help> 
+                    You just checked it some hours ago after you got todays paycheck
+                </help> 
+                <filled> 
+                    <prompt> 
+                        <value expr="a"/>
+                    </prompt>
+                    <assign name="sys" expr="a"/>
+                    <goto next="#validate1" />
+                </filled>
+		</field>
+	</form>
+	
+    
+	 <form id="validate1">
+		<field name="confirm" type="boolean">
+			<prompt> Is it correct ? </prompt>
+			<filled>
+				<if cond ="confirm == true">
+					<goto next = "#test11"/>
+					<elseif cond ="confirm == false"/>
+						<goto next = "#test1"/>
+				</if>
+			</filled>
+		</field>
+	</form>
+	
+	
+    
+    <form id = "test11">
+		<block>
+			<if cond ="sys &lt; 1000 "> 
+        <!-- totally inspired by the way a co-worker of mine says shut-up -->
+				<prompt> Shut up dont lie.</prompt> 
+				<goto next = "#test1" />
+			</if>
+			<goto next = "#done" />
+		</block>
+	</form> 
+
+
+ 	
+	
+	<form id="done">
+		<block>
+			<prompt>
+			  <break size = "small" />
+			  You Are Done.
+			  Your Data has been submitted.
+			  Thank You for using Bank of America . <break size = "small" /> We will contact you soon .
+			  Have a nice day.
+			</prompt>
+		</block>
+	</form>
+
+</vxml>
